@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hémangiome infantile — Item 113 (EDN)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #f8f9fb;
+      --bg-card: #ffffff;
+      --text-main: #2f2e2b;
+      --text-muted: #6b6a65;
+      --border-soft: #eae9e5;
+      --toggle-bg: #f9f8f6;
+      --toggle-hover: #f3f2ee;
+      --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.06), 0 1px 4px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      margin: 0;
+      padding: 2rem 1rem 4rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .notion-page {
+      max-width: 920px;
+      margin: 0 auto;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      box-shadow: var(--shadow-card);
+      padding: 2.5rem 3rem;
+    }
+
+    @media (max-width: 640px) {
+      .notion-page {
+        padding: 1.5rem 1.25rem;
+        border-radius: 12px;
+      }
+    }
+
+    /* En-tête de fiche */
+    .page-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      border-bottom: 2px solid var(--border-soft);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .breadcrumb {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    h1 {
+      font-size: 1.95rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin: 0;
+      color: #1f1e1b;
+      line-height: 1.2;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .btn-toggle-all {
+      background-color: #f1f0ec;
+      color: #37352f;
+      border: 1px solid #e0dfd9;
+      border-radius: 8px;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.15s ease;
+    }
+
+    .btn-toggle-all:hover {
+      background-color: #e6e4de;
+      transform: translateY(-1px);
+    }
+
+    /* Titres de section */
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 2.1rem;
+      margin-bottom: 0.85rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .sec-blue { background-color: #eef6fb; color: #0f4c75; border-left: 4px solid #2eaadc; }
+    .sec-purple { background-color: #f5effb; color: #4a235a; border-left: 4px solid #9065b0; }
+    .sec-teal { background-color: #ecf7f4; color: #0e5a4d; border-left: 4px solid #0f7b6c; }
+    .sec-orange { background-color: #fdf3eb; color: #7c360c; border-left: 4px solid #d9730d; }
+    .sec-red { background-color: #fdf0f1; color: #7f1d1d; border-left: 4px solid #e03e3e; }
+    .sec-green { background-color: #eef7f0; color: #14532d; border-left: 4px solid #16a34a; }
+
+    /* Callouts Notion */
+    .callout {
+      padding: 1.1rem 1.25rem;
+      border-radius: 10px;
+      margin: 1rem 0;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-left-width: 5px;
+      font-size: 0.96rem;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 1rem;
+    }
+
+    .callout-blue { background-color: #e7f3f8; border-left-color: #2eaadc; }
+    .callout-yellow { background-color: #fbf3db; border-left-color: #dfab01; }
+    .callout-red { background-color: #fdebec; border-left-color: #e03e3e; }
+    .callout-green { background-color: #edf3ec; border-left-color: #0f7b6c; }
+
+    /* Blocs rétractables (Toggles) */
+    details {
+      background-color: var(--toggle-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+      margin: 0.65rem 0;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    details:hover {
+      background-color: var(--toggle-hover);
+    }
+
+    details[open] {
+      background-color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    summary {
+      list-style: none;
+      font-weight: 600;
+      font-size: 0.98rem;
+      cursor: pointer;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #262522;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::before {
+      content: "▶";
+      font-size: 0.72rem;
+      color: #787774;
+      transition: transform 0.2s ease;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    details[open] > summary::before {
+      transform: rotate(90deg);
+      color: #2eaadc;
+    }
+
+    .toggle-content {
+      padding: 0.2rem 1.25rem 1rem 2.1rem;
+      border-top: 1px dashed #ecebe6;
+      font-size: 0.95rem;
+    }
+
+    /* Sous-toggles imbriqués */
+    details details {
+      background-color: #faf9f7;
+      margin: 0.6rem 0;
+      border-radius: 8px;
+    }
+
+    details details[open] {
+      background-color: #ffffff;
+    }
+
+    /* Toggles d'alerte / urgence */
+    details.danger-toggle {
+      background-color: #fff6f6;
+      border-color: #fad2d4;
+    }
+    details.danger-toggle > summary {
+      color: #9b1c1c;
+    }
+
+    /* Badges RANG A / RANG B */
+    .badge-group {
+      display: inline-flex;
+      gap: 0.35rem;
+      align-items: center;
+    }
+
+    .badge-a {
+      background-color: #d3e5ef;
+      color: #183347;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.76rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .badge-b {
+      background-color: #f5e0e9;
+      color: #4c2337;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.76rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    /* Surlignages fluo pastel façon Notion */
+    mark, .hl-yellow {
+      background-color: #fdecc8;
+      color: inherit;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .hl-pink {
+      background-color: #ffe2dd;
+      color: #7a1c1c;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .hl-blue {
+      background-color: #d3e5ef;
+      color: #133b5c;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .hl-green {
+      background-color: #dbeddb;
+      color: #14452f;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .red-text {
+      color: #d93025;
+      font-weight: 600;
+    }
+
+    .blue-text {
+      color: #0b6e99;
+      font-weight: 600;
+    }
+
+    /* Listes */
+    ul {
+      margin: 0.45rem 0;
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* Tableaux Notion */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 0.75rem 0;
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--border-soft);
+      border-right: 1px solid var(--border-soft);
+      padding: 0.65rem 0.85rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th:last-child, td:last-child {
+      border-right: none;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    th {
+      background-color: #f4f3ef;
+      font-weight: 700;
+      color: #37352f;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #fcfcfb;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="notion-page">
+
+    <!-- En-tête -->
+    <header class="page-header">
+      <div>
+        <div class="breadcrumb">📚 Dermatologie &amp; Médecine Vasculaire &rsaquo; Item 113 &rsaquo; Tumeurs vasculaires</div>
+        <h1>🍓 Hémangiome infantile (Item 113)</h1>
+      </div>
+      <div class="toolbar">
+        <button type="button" class="btn-toggle-all" id="toggleAllBtn" onclick="toggleAllDetails()">
+          📂 Tout déplier
+        </button>
+      </div>
+    </header>
+
+    <!-- Callout Synthèse Introductive -->
+    <div class="callout callout-blue" style="background-color: rgba(231, 243, 248, 1); border-left: 5px solid #2eaadc; padding: 1rem; border-radius: 8px;">
+      <div class="callout-title" style="color: #0b6e99;">📌 Vue d'ensemble — L'essentiel de l'item</div>
+      <div>
+        L'<strong>hémangiome infantile</strong> est une <mark style="background-color: rgba(251, 243, 219, 1);">prolifération bénigne de cellules endothéliales</mark> de cause inconnue formant des capillaires, <span class="hl-pink" style="background-color: rgba(253, 235, 236, 1); color: #e03e3e;">apparaissant dans les semaines/mois après la naissance</span> (non congénital). C'est la <strong>plus fréquente des tumeurs du nourrisson</strong>. Il existe <strong>3 types</strong> d'hémangiomes : <span class="hl-blue" style="background-color: rgba(231, 243, 248, 1); color: #0b6e99;">superficiel, profond et mixte</span>. Le diagnostic est <strong>clinique</strong> (tuméfaction <em>non soufflante, non battante, sans frémissement et de consistance élastique</em>) mais l'échographie peut aider au diagnostic différentiel. L'évolution se fait vers la <span class="hl-green" style="background-color: rgba(237, 243, 236, 1); color: #0f7b6c;">régression spontanée</span>, mais de nombreuses complications sont possibles.
+      </div>
+    </div>
+
+    <!-- Callout Update 2025 -->
+    <div class="callout callout-yellow" style="background-color: rgba(251, 243, 219, 1); border-left: 5px solid #dfab01; padding: 1rem; border-radius: 8px;">
+      <div class="callout-title" style="color: #9a6700;">🆕 Update du Collège de Médecine Vasculaire — 4ème édition (2025)</div>
+      <ul style="margin-bottom: 0;">
+        <li>L’<span class="hl-pink" style="background-color: rgba(253, 235, 236, 1); color: #e03e3e;">hémangiome congénital ne répond pas au propranolol</span>, au contraire de l’hémangiome infantile.</li>
+        <li>Pour le diagnostic différentiel, l’<strong>échodoppler</strong> met en évidence un <mark style="background-color: rgba(251, 243, 219, 1);">flux rapide</mark> en cas d’hémangiome et un <span class="hl-blue" style="background-color: rgba(231, 243, 248, 1); color: #0b6e99;">flux lent</span> en cas de <strong>malformations veineuses ou lymphatiques</strong>.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION 1 -->
+    <h2 class="sec-blue" style="background-color: rgba(231, 243, 248, 1); color: #0b6e99;">
+      <span>1. Définition, Épidémiologie &amp; Facteurs de risque</span>
+      <span class="badge-group"><span class="badge-a">RANG A</span></span>
+    </h2>
+
+    <details open>
+      <summary><span class="badge-a">RANG A</span> Définition</summary>
+      <div class="toggle-content">
+        <ul>
+          <li><strong>Hémangiome :</strong> Prolifération cutanée bénigne de cellules endothéliales vasculaires de cause inconnue, <span class="hl-pink" style="background-color: rgba(253, 235, 236, 1); color: #e03e3e;">non congénitale</span>.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details open>
+      <summary><span class="badge-a">RANG A</span> Épidémiologie &amp; Facteurs de risque non modifiables</summary>
+      <div class="toggle-content">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 30%;">Paramètre</th>
+                <th>Données clés à retenir</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Prévalence</strong></td>
+                <td>Plus fréquente des tumeurs du nourrisson, avec une <mark style="background-color: rgba(251, 243, 219, 1);">prévalence de 10 %</mark>.</td>
+              </tr>
+              <tr>
+                <td><strong>Âge &amp; Terrain</strong></td>
+                <td>Plus fréquent chez les nourrissons à <strong>peau blanche</strong>, les <strong>petits poids pour l'âge gestationnel</strong> et chez les <strong>prématurés de moins de 1 500 g</strong>.</td>
+              </tr>
+              <tr>
+                <td><strong>Sex-ratio</strong></td>
+                <td>Plus fréquent chez les <span class="blue-text" style="color: #0b6e99;">filles</span>.</td>
+              </tr>
+              <tr>
+                <td><strong>Facteurs de risque (non modifiables)</strong></td>
+                <td>
+                  • <span class="hl-blue" style="background-color: rgba(231, 243, 248, 1); color: #0b6e99;">Sexe féminin</span><br>
+                  • <mark style="background-color: rgba(251, 243, 219, 1);">Prématurité</mark><br>
+                  • <mark style="background-color: rgba(251, 243, 219, 1);">Poids de naissance &lt; 1 500 g</mark><br>
+                  • <strong>Peau claire</strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <!-- SECTION 2 -->
+    <h2 class="sec-purple" style="background-color: rgba(244, 238, 248, 1); color: #9065b0;">
+      <span>2. Physiopathologie &amp; Histoire naturelle</span>
+      <span class="badge-group"><span class="badge-a">RANG A</span></span>
+    </h2>
+
+    <details>
+      <summary>🧬 Étiologie &amp; Mécanisme physiopathologique</summary>
+      <div class="toggle-content">
+        <ul>
+          <li><strong>Étiologie :</strong> Inconnue.</li>
+          <li><strong>Mécanisme suspecté :</strong> Une <mark style="background-color: rgba(251, 243, 219, 1);">hypoxie tissulaire</mark> pourrait avoir pour conséquence de stimuler la <strong>vasculogenèse</strong>.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details open>
+      <summary>⏳ Séquence évolutive en 4 étapes (Intervalle libre &rarr; Croissance &rarr; Involution)</summary>
+      <div class="toggle-content">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 28%;">Étape</th>
+                <th>Chronologie &amp; Description clinique</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. À la naissance</strong></td>
+                <td><span class="hl-pink" style="background-color: rgba(253, 235, 236, 1); color: #e03e3e;">Absent à la naissance</span> (ou précédé par une <em>macule télangiectasique avec halo périphérique de vasoconstriction</em> : <strong>notion d’intervalle libre</strong>).</td>
+              </tr>
+              <tr>
+                <td><strong>2. Phase de croissance</strong></td>
+                <td>À partir de l’âge de quelques jours à quelques semaines et pendant <strong>5 à 6 mois</strong> (apparaît dans <mark style="background-color: rgba(251, 243, 219, 1);">70 % des cas dans les 2 premières semaines de vie</mark>).</td>
+              </tr>
+              <tr>
+                <td><strong>3. Phase d'involution spontanée</strong></td>
+                <td>Pendant <strong>2 à 10 ans</strong> : débute par un <mark style="background-color: rgba(251, 243, 219, 1);">blanchiment en surface</mark> puis une diminution progressive de la taille.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Fin de la phase d’involution</strong></td>
+                <td>
+                  • <span class="hl-green" style="background-color: rgba(237, 243, 236, 1); color: #0f7b6c;">50 % : régression totale sans séquelles</span><br>
+                  • <span class="hl-yellow" style="background-color: rgba(251, 243, 219, 1);">50 % : séquelle de type télangiectasies ou nodule fibro-adipeux</span> nécessitant parfois un geste thérapeutique.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <!-- SECTION 3 -->
+    <h2 class="sec-teal" style="background-color: rgba(237, 243, 236, 1); color: #0f7b6c;">
+      <span>3. Diagnostic positif &amp; Examens complémentaires</span>
+      <span class="badge-group"><span class="badge-a">RANG A</span></span>
+    </h2>
+
+    <details>
+      <summary>🩺 Signes cliniques &amp; Anamnèse</summary>
+      <div class="toggle-content">
+        <ul>
+          <li><strong>Anamnèse :</strong> Les parents rapportent une <mark style="background-color: rgba(251, 243, 219, 1);">tuméfaction rouge apparue quelques semaines/mois après la naissance</mark> (voir <em>« Interrogatoire en dermatologie »</em>).</li>
+          <li><strong>Signes cliniques cardinaux :</strong>
+            <ul>
+              <li>Tuméfaction <span class="hl-pink" style="background-color: rgba(253, 235, 236, 1); color: #e03e3e;">non soufflante, non battante, non frémissante, non indurée</span></li>
+              <li>Nodule ou plaque rouge</li>
+              <li>Cicatrices</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </details>
+
+    <details open>
+      <summary>🔍 Examen physique dermatologique (Inspection, Palpation, Auscultation)</summary>
+      <div class="toggle-content">
+
+        <details open>
+          <summary>👁️ Inspection &amp; Les 3 formes cliniques</summary>
+          <div class="toggle-content">
+            <ul>
+              <li><strong>Nombre :</strong> le plus souvent unique, mais parfois multiples.</li>
+              <li><strong>Taille :</strong> à évaluer et mesurer.</li>
+              <li><strong>Siège (localisation / distribution) :</strong> <mark style="background-color: rgba(251, 243, 219, 1);">Focal, Multifocal, Segmentaire, Indéterminé</mark>.</li>
+              <li><strong>Tuméfactions non soufflantes</strong> à l'auscultation.</li>
+              <li><strong>Cicatrices séquellaires dans 70 % des cas :</strong> à type de <em>peau flasque, d’anétodermie, de dyschromie, de télangiectasies, de résidu fibro-adipeux, ou de déformations structurales</em>.</li>
+            </ul>
+
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width: 32%;">Forme clinique</th>
+                    <th>Caractéristiques sémiologiques</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Hémangiome superficiel ou « tubéreux »</strong></td>
+                    <td>Quelques cm, couleur <span class="red-text" style="color: #e03e3e;">rouge</span> avec un aspect tubéreux en surface ressemblant à une <mark style="background-color: rgba(251, 243, 219, 1);">fraise</mark>.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Hémangiome profond</strong></td>
+                    <td>Autre aspect, plus rare, <strong>dermique ou hypodermique</strong>, sous une peau de couleur <span class="blue-text" style="color: #0b6e99;">normale ou bleutée</span>. Parfois <em>télangiectasies en surface</em>.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Hémangiome mixte</strong></td>
+                    <td>Superpose les deux aspects (superficiel + profond).</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>✋ Palpation &amp; 🎧 Auscultation</summary>
+          <div class="toggle-content">
+            <ul>
+              <li><strong>Palpation :</strong>
+                <ul>
+                  <li><mark style="background-color: rgba(251, 243, 219, 1);">Sans battement ni frémissement</mark> à la palpation</li>
+                  <li><strong>Dépressible</strong></li>
+                  <li><strong>Pâlit légèrement à la pression</strong></li>
+                  <li>De <span class="hl-green" style="background-color: rgba(237, 243, 236, 1); color: #0f7b6c;">consistance élastique (non indurée)</span></li>
+                </ul>
+              </li>
+              <li><strong>Auscultation :</strong> <span class="red-text" style="color: #e03e3e;">Pas de souffle</span>.</li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+    </details>
+
+    <details>
+      <summary>🖥️ Examens complémentaires</summary>
+      <div class="toggle-content">
+        <ul>
+          <li><strong>Généralités :</strong> Généralement, le <mark style="background-color: rgba(251, 243, 219, 1);">diagnostic est clinique</mark> et aucun examen complémentaire n'est nécessaire. La <strong>biopsie est dans la plupart des cas inutile</strong>.</li>
+          <li><strong>Échographie-doppler :</strong>
+            <ul>
+              <li>En cas de doute diagnostique, l'<span class="hl-blue" style="background-color: rgba(231, 243, 248, 1); color: #0b6e99;">échographie-doppler est l'examen de première intention</span>.</li>
+              <li>Met en évidence un <mark style="background-color: rgba(251, 243, 219, 1);">flux vasculaire rapide</mark> dans les hémangiomes en phase d'extension.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- SECTION 4 -->
+    <h2 class="sec-orange" style="background-color: rgba(250, 237, 229, 1); color: #d9730d;">
+      <span>4. Diagnostics différentiels</span>
+      <span class="badge-group"><span class="badge-b">RANG B</span></span>
+    </h2>
+
+    <details class="danger-toggle">
+      <summary>⚠️ Tumeurs malignes du nourrisson (Rhabdomyosarcome, fibrosarcome, etc.)</summary>
+      <div class="toggle-content">
+        <ul>
+          <li><strong>À évoquer devant :</strong>
+            <ul>
+              <li>Tumeur <span class="hl-pink" style="background-color: rgba(253, 235, 236, 1); color: #e03e3e;">congénitale</span></li>
+              <li>Unique</li>
+              <li>Touchant le visage ou un segment de membre</li>
+              <li><span class="hl-pink" style="background-color: rgba(253, 235, 236, 1); color: #e03e3e;">Induration</span></li>
+            </ul>
+          </li>
+          <li><strong>Conduite à tenir :</strong> <mark style="background-color: rgba(251, 243, 219, 1);">Biopsie au moindre doute</mark>.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>🔴 Tumeurs bénignes : Botryomycome</summary>
+      <div class="toggle-content">
+        <ul>
+          <li><strong>Synonymes :</strong> <em>Granulome pyogénique, hémangiome capillaire lobulé</em>.</li>
+          <li><strong>Clinique :</strong> Tumeur bénigne d'origine vasculaire du derme superficiel, parfois hypodermique, située le plus souvent au niveau des <mark style="background-color: rgba(251, 243, 219, 1);">doigts et des orteils</mark> (souvent associé à un <strong>ongle incarné</strong>). On peut les observer également dans la <strong>bouche</strong> ou sur le <strong>visage</strong>.</li>
+          <li><strong>Étiologie :</strong> Inconnue, parfois liée à une infection au <strong>HPV</strong>, un <strong>traumatisme cutané</strong>, la <strong>grossesse</strong> ou à un <strong>médicament</strong>.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>🧬 Malformations vasculaires</summary>
+      <div class="toggle-content">
+        <ul>
+          <li><strong>Angiome plan :</strong> Un hémangiome superficiel au stade précoce peut simuler un angiome plan.</li>
+          <li><strong>Malformation veineuse ou lymphatique :</strong> Un hémangiome profond peut simuler une malformation veineuse ou lymphatique.</li>
+          <li><strong>Examen clé :</strong> L'<span class="hl-blue" style="background-color: rgba(231, 243, 248, 1); color: #0b6e99;">échographie-doppler fera le diagnostic</span> (flux rapide vs flux lent).</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>👶 Hémangiomes congénitaux</summary>
+      <div class="toggle-content">
+        <ul>
+          <li>Histogenèse différente des hémangiomes infantiles.</li>
+          <li><mark style="background-color: rgba(251, 243, 219, 1);">Présent à la naissance</mark>, parfois dépistés par l'échographie anténatale.</li>
+          <li>Peut être confondu avec une tumeur maligne &rarr; <strong>biopsie au moindre doute</strong>.</li>
+          <li><strong>Évolution variable :</strong> régression rapide (<em>involutif</em>) ou persistance (<em>non involutif</em>). <span class="hl-pink" style="background-color: rgba(253, 235, 236, 1); color: #e03e3e;">Ne répond pas au propranolol</span>, à la différence de l'hémangiome infantile.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="danger-toggle">
+      <summary>🚨 Syndrome de Kasabach-Merritt (Urgence vitale)</summary>
+      <div class="toggle-content">
+        <ul>
+          <li><strong>Définition :</strong> Syndrome vasculaire associant une <mark style="background-color: rgba(251, 243, 219, 1);">tumeur vasculaire congénitale + CIVL (coagulation intravasculaire locale) + thrombopénie</mark>.</li>
+          <li><strong>Clinique &amp; Biologie :</strong>
+            <ul>
+              <li>Tumeur vasculaire <strong>volumineuse, ecchymotique, violacée et inflammatoire</strong>.</li>
+              <li>La CIVL survient au niveau tumoral entraînant une <span class="hl-pink" style="background-color: rgba(253, 235, 236, 1); color: #e03e3e;">thrombopénie majeure</span>.</li>
+              <li><span class="red-text" style="color: #e03e3e;">Risque hémorragique majeur et souvent létal</span>.</li>
+            </ul>
+          </li>
+          <li><strong>Terrain :</strong> <strong>Ne complique pas les hémangiomes infantiles</strong> mais des tumeurs vasculaires congénitales rares. Touche surtout les <span class="blue-text" style="color: #0b6e99;">nouveau-nés garçons de moins de 6 mois</span>.</li>
+          <li><strong>Prise en charge :</strong> Spécialisée hospitalière.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- SECTION 5 -->
+    <h2 class="sec-red" style="background-color: rgba(253, 235, 236, 1); color: #e03e3e;">
+      <span>5. Complications (~10 % des hémangiomes se compliquent)</span>
+      <span class="badge-group"><span class="badge-a">RANG A</span><span class="badge-b">RANG B</span></span>
+    </h2>
+
+    <details>
+      <summary>🩹 Hémangiomes ulcérés (ulcération)</summary>
+      <div class="toggle-content">
+        <ul>
+          <li><strong>Localisations à risque :</strong> le <mark style="background-color: rgba(251, 243, 219, 1);">siège</mark>, les <mark style="background-color: rgba(251, 243, 219, 1);">lèvres</mark>, les <mark style="background-color: rgba(251, 243, 219, 1);">plis</mark> comme le cou.</li>
+          <li><strong>Conséquences :</strong>
+            <ul>
+              <li>Entraîne des <strong>douleurs</strong> majorées par les mictions en cas d'atteinte du siège.</li>
+              <li>Entraîne des <strong>difficultés à l'alimentation</strong> au niveau des lèvres.</li>
+              <li><strong>Surinfection</strong> &amp; <strong>Saignements</strong>.</li>
+              <li><strong>Cicatrice atrophique et inesthétique</strong>.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>👁️ Hémangiomes orbito-palpébraux &amp; Pointe du nez</summary>
+      <div class="toggle-content">
+        <ul>
+          <li><strong>Hémangiomes orbito-palpébraux :</strong> Risque d'<span class="hl-pink" style="background-color: rgba(253, 235, 236, 1); color: #e03e3e;">amblyopie fonctionnelle</span> due à une occlusion précoce de la fente palpébrale, un <strong>astigmatisme</strong> par compression du globe et déformation de la cornée, et un <strong>déplacement du globe oculaire</strong>.</li>
+          <li><strong>Hémangiomes de la pointe du nez :</strong> Préjudice esthétique et <strong>déformations séquellaires des cartilages du nez</strong>.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="danger-toggle">
+      <summary>🫁 Hémangiomes sous-glottiques (Urgence respiratoire)</summary>
+      <div class="toggle-content">
+        <ul>
+          <li><strong>Clinique :</strong> Obstruction laryngée ou trachéale à l'origine d'une <span class="hl-pink" style="background-color: rgba(253, 235, 236, 1); color: #e03e3e;">détresse respiratoire : stridor ou dyspnée laryngée</span>.</li>
+          <li><strong>Signe d'appel :</strong> À rechercher en cas d'hémangiomes cutanés <mark style="background-color: rgba(251, 243, 219, 1);">« en barbe »</mark> ou muqueuses de la <strong>lèvre</strong> ou de la <strong>langue</strong> car ils sont souvent associés.</li>
+          <li><strong>Conduite à tenir :</strong> <strong>Exploration endoscopique ORL nécessaire</strong> et avis spécialisé.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>🫀 Hémangiomatose miliaire (Atteinte viscérale)</summary>
+      <div class="toggle-content">
+        <ul>
+          <li><strong>Rare :</strong> Petits hémangiomes millimétriques (jusqu'à 1 cm) peu nombreux ou profus.</li>
+          <li>Parfois associés à des <mark style="background-color: rgba(251, 243, 219, 1);">hémangiomes viscéraux : surtout hépatiques</mark> avec possibilité d'une <span class="red-text" style="color: #e03e3e;">insuffisance cardiaque à haut débit</span>.</li>
+          <li>Si atteinte hépatique, rechercher une <span class="hl-blue" style="background-color: rgba(231, 243, 248, 1); color: #0b6e99;">hypothyroïdie</span>.</li>
+          <li><strong>Conduite à tenir :</strong> <strong>Échographie abdominale</strong> et avis spécialisé.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>🦠 Infection &amp; Troubles fonctionnels ou esthétiques</summary>
+      <div class="toggle-content">
+        <ul>
+          <li><strong>Infection :</strong> Généralement surinfection bactérienne.</li>
+          <li><strong>Localisation entraînant des troubles fonctionnels ou esthétiques :</strong> Certaines localisations peuvent obstruer des fonctions vitales telles que la <em>vision, l’ouïe, l’alimentation, la digestion, l’excrétion ou la respiration</em> ; ou déformer les traits du visage.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>🧩 Formes syndromiques associées à des malformations (PHACES &amp; PELVIS / SACRAL)</summary>
+      <div class="toggle-content">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 28%;">Syndrome</th>
+                <th>Hémangiome &amp; Malformations associées</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Syndrome PHACES</strong></td>
+                <td>
+                  Hémangiome <mark style="background-color: rgba(251, 243, 219, 1);">céphalique en règle segmentaire</mark> et souvent peu épais + :<br>
+                  • Anomalies de la <strong>fosse postérieure</strong><br>
+                  • Anomalies <strong>artérielles</strong><br>
+                  • Anomalies <strong>cardiaques</strong><br>
+                  • Anomalies <strong>oculaires</strong> (<em>eye</em>)<br>
+                  • Anomalies <strong>sternales</strong>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Syndrome PELVIS ou SACRAL</strong></td>
+                <td>
+                  Hémangiomes <mark style="background-color: rgba(251, 243, 219, 1);">lombaires, lombo-sacrés et de membre inférieur</mark> + :<br>
+                  • Malformations <strong>ano-rectales et génito-urinaires</strong> (<em>dysraphisme occulte, anomalies génitales, urinaires ou anales</em>)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <!-- SECTION 6 -->
+    <h2 class="sec-green" style="background-color: rgba(237, 243, 236, 1); color: #0f7b6c;">
+      <span>6. Traitement, Pronostic &amp; Suivi</span>
+      <span class="badge-group"><span class="badge-a">RANG A</span></span>
+    </h2>
+
+    <details open>
+      <summary>💊 Traitement (Mesures générales &amp; Traitement médical)</summary>
+      <div class="toggle-content">
+        <ul>
+          <li><strong>Mesures générales :</strong> Généralement, aucun traitement n'est nécessaire et l'évolution se fait vers la régression spontanée.</li>
+          <li><strong>Hémangiome non compliqué :</strong> <span class="hl-green" style="background-color: rgba(237, 243, 236, 1); color: #0f7b6c;">Abstention thérapeutique</span>.</li>
+          <li><strong>Hémangiome à risque de complication :</strong>
+            <ul>
+              <li><em>Indications :</em> Hémangiome volumineux, douloureux, mise en jeu possible du pronostic fonctionnel ou vital, risque de séquelles esthétiques.</li>
+              <li><em>Molécule de 1ère intention :</em> <mark style="background-color: rgba(251, 243, 219, 1);">Propranolol PO</mark> (initié en centre de référence).</li>
+              <li><em>Fenêtre d'âge :</em> Chez l'enfant de <span class="blue-text" style="color: #0b6e99;">5 semaines à 5 mois</span>.</li>
+              <li><em>Posologie &amp; Durée :</em> <mark style="background-color: rgba(251, 243, 219, 1);">3 mg/kg/jour en deux prises par jour</mark> pendant <strong>au moins 6 mois</strong>.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </details>
+
+    <details open>
+      <summary>📈 Pronostic &amp; Suivi</summary>
+      <div class="toggle-content">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 30%;">Échéance</th>
+                <th>Évolution attendue (Régression spontanée avant 10 ans)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>À 5 ans</strong></td>
+                <td><mark style="background-color: rgba(251, 243, 219, 1);">50 % de régression</mark></td>
+              </tr>
+              <tr>
+                <td><strong>À 7 ans</strong></td>
+                <td><mark style="background-color: rgba(251, 243, 219, 1);">70 % de régression</mark></td>
+              </tr>
+              <tr>
+                <td><strong>À 10 ans</strong></td>
+                <td>
+                  <mark style="background-color: rgba(251, 243, 219, 1);">100 % de régression</mark> :<br>
+                  • Régression <strong>sans cicatrice</strong> dans <strong>50 %</strong> des cas<br>
+                  • Régression avec <strong>séquelle</strong> de type <em>télangiectasies ou nodule fibro-adipeux</em> dans <strong>50 %</strong> des cas
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Suivi</strong></td>
+                <td>Pas de suivi particulier.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <!-- Fiche Flash Récapitulative -->
+    <div class="callout callout-green" style="background-color: rgba(237, 243, 236, 1); border-left: 5px solid #0f7b6c; padding: 1.1rem; border-radius: 10px; margin-top: 1.75rem;">
+      <div class="callout-title" style="color: #0f7b6c;">✅ Fiche Flash — Hémangiomes infantiles (À retenir absolument)</div>
+      <ul style="margin-bottom: 0;">
+        <li>L'hémangiome infantile est une <strong>prolifération bénigne de cellules endothéliales</strong> de cause inconnue formant des capillaires.</li>
+        <li>Il est <mark style="background-color: rgba(251, 243, 219, 1);">absent à la naissance</mark> et apparaît dans les semaines/mois qui suivent.</li>
+        <li>C'est la plus fréquente des tumeurs du nourrisson, avec une <strong>incidence/prévalence de 10 %</strong>.</li>
+        <li>Il existe <strong>3 types</strong> d'hémangiomes : <strong>superficiel, profond et mixte</strong>.</li>
+        <li>Le diagnostic est <strong>clinique</strong> et retrouve une tuméfaction <strong>non soufflante, non battante, sans frémissement, non indurée</strong>.</li>
+        <li>L'évolution se fait vers la <strong>régression spontanée</strong>.</li>
+        <li>Le <mark style="background-color: rgba(251, 243, 219, 1);">propranolol PO</mark> peut être indiqué en cas de forme compliquée (3 mg/kg/j en 2 prises pendant &ge; 6 mois).</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <script>
+    function toggleAllDetails() {
+      const allDetails = document.querySelectorAll('details');
+      const btn = document.getElementById('toggleAllBtn');
+      const anyClosed = Array.from(allDetails).some(d => !d.open);
+
+      allDetails.forEach(d => {
+        d.open = anyClosed;
+      });
+
+      btn.innerHTML = anyClosed ? '📁 Tout replier' : '📂 Tout déplier';
+    }
+  </script>
+
+</body>
+</html>
